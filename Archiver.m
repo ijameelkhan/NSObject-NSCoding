@@ -48,4 +48,26 @@
     return result;
 }
 
+
+
++ (NSData *)retriveDataForKey:(NSString *)key{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingString:[NSString stringWithFormat:@"/%@.archive", key]];
+    return [NSData dataWithContentsOfFile:filePath];
+    
+}
++ (BOOL)persistData:(NSData *)data key:(NSString *)key{
+    
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingString:[NSString stringWithFormat:@"/%@.archive", key]];
+    return [data writeToFile:filePath atomically:YES];
+    
+}
+
+
+
 @end

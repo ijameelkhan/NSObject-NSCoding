@@ -18,4 +18,8 @@
 + (BOOL)delete:(NSString *)key;
 + (BOOL)deleteEverything;
 
++ (NSData *)retriveDataForKey:(NSString *)key;
++ (BOOL)persistData:(NSData *)data key:(NSString *)key;
+
+
 @end
